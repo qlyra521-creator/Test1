@@ -114,18 +114,21 @@
     const mOk = document.getElementById("mOk");
 
     // 你想要多少轮才“同意”
-    const FINAL_ROUND = 7;
-    let round = 0;
+const FINAL_ROUND = 9;
 
-    const prompts = [
-      {t:"Are you sure?", d:"This is a serious decision 😳"},
-      {t:"Like… 100% sure?", d:"No take-backs."},
-      {t:"Wait wait wait…", d:"You’re not clicking randomly, right?"},
-      {t:"Final answer?", d:"Think carefully 🤨"},
-      {t:"Are you REALLY sure??", d:"This is your last chance…"},
-      {t:"Ok but… why?", d:"Because I’m adorable? 😏"},
-      {t:"One more time:", d:"Say it with confidence!"}
-    ];
+const prompts = [
+  { t: "Oh? You clicked YES 😏", d: "Bold choice. Let’s see if you mean it." },
+  { t: "Are you sure?", d: "No refunds. No returns. No backing out later." },
+  { t: "Oops…", d: "Kidding. You thought it’d be that easy? Adorable." },
+  { t: "Try again?", d: "Go on. Prove you’re not just panic-clicking." },
+  { t: "Plot twist:", d: "You can’t be my Valentine. (…or can you?)" },
+  { t: "Hmm.", d: "Still saying yes? You’re either brave… or hopelessly cute." },
+
+  // softer from here
+  { t: "Okay, okay…", d: "I’m starting to believe you actually mean it." },
+  { t: "One more time.", d: "Say yes again and I’ll stop pretending I’m not smiling." },
+  { t: "Alright. Final answer?", d: "Because if it’s yes… I’m saying yes too. 💞" }
+];
 
     // No 按钮逃跑（可选）
     function placeNo() {
@@ -189,7 +192,7 @@
         heroImg.src = "happy.jpg";
         heroImg.alt = "happy photo";
 
-        result.textContent = "Okay okay… I agree! 💞 You’re my Valentine! 🥰";
+        result.textContent = "OKAY FINE…I agree! 💞 You’re my Valentine I'll allow it 🥰";
         document.getElementById("sub").textContent = "You passed all the rounds 😌";
         no.style.display = "none";
         yes.textContent = "Yay 🎉";
