@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Will you be my Valentine?</title>
+  <title>TIM, WILL YOU BE MY VALENTINE?</title>
   <style>
     body{
       margin:0;height:100vh;display:grid;place-items:center;
@@ -133,7 +133,7 @@
     function openModal() {
       const i = Math.min(round, prompts.length - 1);
       mTitle.textContent = prompts[i].t;
-      mText.textContent  = prompts[i].d + `  (round ${round + 1}/${FINAL_ROUND})`;
+      mText.textContent = prompts[i].d;
 
       // 越往后，"Yes" 越难点：按钮变小、换文案
       const shrink = Math.max(0, round - 1);
