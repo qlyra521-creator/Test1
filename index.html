@@ -17,12 +17,24 @@
       box-shadow:0 10px 30px rgba(0,0,0,.12);
       text-align:center;position:relative;overflow:hidden;
     }
+
+    /* ✅ 顶部照片 */
+    .hero{
+      width: min(460px, 96%);
+      height: 260px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin: 2px auto 14px;
+      display: block;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
     h1{margin:8px 0 10px;font-size:28px}
     #sub{margin:0 0 18px;color:#555}
     .btns{
       position:relative;
       display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
-      height:62px; /* 给按钮移动留空间 */
+      height:62px;
       align-items:center;
     }
     button{
@@ -59,7 +71,11 @@
 </head>
 <body>
   <div class="card" id="card">
-    <h1 id="title">Will you be my Valentine? 💘</h1>
+
+    <!-- ✅ 一开始显示 angry.jpg -->
+    <img id="heroImg" class="hero" src="angry.jpg" alt="angry photo">
+
+    <h1 id="title">TIM, WILL YOU BE MY VALENTINE? 💘</h1>
     <p id="sub">Choose wisely… 😈</p>
 
     <div class="btns" id="btnArea">
@@ -88,6 +104,8 @@
     const yes = document.getElementById("yes");
     const no = document.getElementById("no");
     const result = document.getElementById("result");
+
+    const heroImg = document.getElementById("heroImg"); // ✅ 顶部图片
 
     const backdrop = document.getElementById("backdrop");
     const mTitle = document.getElementById("mTitle");
@@ -154,7 +172,6 @@
     // 弹窗里的“Wait…”：关掉
     mCancel.addEventListener("click", () => {
       closeModal();
-      // 小小惩罚：让 No 也动一下
       placeNo();
     });
 
@@ -167,15 +184,18 @@
 
       if (round >= FINAL_ROUND) {
         closeModal();
+
+        // ✅ 最后同意后换成 happy.jpg
+        heroImg.src = "happy.jpg";
+        heroImg.alt = "happy photo";
+
         result.textContent = "Okay okay… I agree! 💞 You’re my Valentine! 🥰";
         document.getElementById("sub").textContent = "You passed all the rounds 😌";
-        // 最终把 No 藏掉也可以
         no.style.display = "none";
         yes.textContent = "Yay 🎉";
         return;
       }
 
-      // 继续下一轮：换一组提示
       openModal();
     });
 
@@ -186,3 +206,4 @@
   </script>
 </body>
 </html>
+
