@@ -19,15 +19,15 @@
     }
 
     /* ✅ 顶部照片 */
-    .hero{
-      width: min(460px, 96%);
-      height: 260px;
-      object-fit: cover;
-      border-radius: 18px;
-      margin: 2px auto 14px;
-      display: block;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
+  .hero{
+  width: min(420px, 92%);
+  height: auto;            /* ← 自适应 */
+  max-height: 240px;       /* ← 限制最大高度，避免太大 */
+  object-fit: contain;
+  border-radius: 18px;
+  margin: 2px auto 14px;
+  display: block;
+}
 
     h1{margin:8px 0 10px;font-size:28px}
     #sub{margin:0 0 18px;color:#555}
